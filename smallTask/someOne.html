@@ -9,47 +9,47 @@
 <div id="result2"></div>
 <script>
     /*Замінити всі елементи з негативним значенням на значення мінімального не рівного 0 позитивного елемента*/
-    /* var result = document.getElementById('result'),
-     result2 = document.getElementById('result2'),
-     arr=[],
-     min=99999999999999999999;
-     function random(){
-     return parseInt(Math.random()*(10-(-10))+(-10));
-     }
-     for(var i=0;i<30;i++){
-     arr.push(random());
-     if(arr[i]<min && arr[i]>0){
-     min=arr[i];
-     }
-     }
-     for(var j=0;j<arr.length;j++){
-     if(arr[j]<0){
-     arr[j]=min;
-     }
-     }
-     result.innerHTML=arr;
-     console.log(min)*/
+/*    var result = document.getElementById('result'),
+            result2 = document.getElementById('result2'),
+            arr = [],
+            min = 99999999999999999999;
+    function random() {
+        return parseInt(Math.random() * (10 - (-10)) + (-10));
+    }
+    for (var i = 0; i < 30; i++) {
+        arr.push(random());
+        if (arr[i] < min && arr[i] > 0) {
+            min = arr[i];
+        }
+    }
+    for (var j = 0; j < arr.length; j++) {
+        if (arr[j] < 0) {
+            arr[j] = min;
+        }
+    }
+    result.innerHTML = arr;
+    console.log(min)*/
 
 
     /*Підрахувати кількість пар сусідніх елементів з однаковими значеннями*/
     /*var result = document.getElementById('result'),
-     arr = [],
-     count = 0;
-     function random() {
-     return parseInt(Math.random() * (10 - (-10)) + (-10));
-     }
-     for (var i = 0; i < 50; i++) {
-     arr.push(random());
-     if (i > 0 && arr[i] == arr[i - 1]) {
-     count++;
-     }
-     }
-     result.innerHTML = arr;
-     document.getElementById('result2').innerHTML = count;*/
+            arr = [],
+            count = 0;
+    function random() {
+        return parseInt(Math.random() * (10 - (-10)) + (-10));
+    }
+    for (var i = 0; i < 50; i++) {
+        arr.push(random());
+        if (i > 0 && arr[i] == arr[i - 1]) {
+            count++;
+        }
+    }
+    result.innerHTML = arr;
+    document.getElementById('result2').innerHTML = count;*/
 
 
     /*Підрахувати кількість ділянок, які утворюють безперервні послідовності чисел із значеннями, що не зменшуються*/
-    var result = document.getElementById('result'),
+    /*var result = document.getElementById('result'),
             arr = [],
             count = 0,
             hhhh = undefined;
@@ -64,7 +64,8 @@
         var ttt = arr.length;
         if (j + 1 < arr.length && arr[j] <= arr[j + 1]) {
             for (var g = j; g < ttt; g++) {
-                if (arr[g] <= arr[g + 1] && g != arr.length) { }
+                if (arr[g] <= arr[g + 1] && g != arr.length) {
+                }
                 else {
                     count++;
                     j = g;
@@ -76,7 +77,100 @@
 
     }
     result.innerHTML = arr;
-    document.getElementById('result2').innerHTML = count;
+    document.getElementById('result2').innerHTML = count;*/
+
+
+    /*Підрахувати кількість пар сусідніх елементів, які мають протилежні знаки*/
+  /*  var result = document.getElementById('result'),
+            arr = [],
+            count = 0;
+    function random() {
+        return parseInt(Math.random() * (10 - (-10)) + (-10));
+    }
+    for (var i = 0; i < 20; i++) {
+        arr.push(random());
+    }
+    result.innerHTML = arr;
+
+    for (var j = 0; j < arr.length; j++) {
+        if (j != 0 && (arr[j] > 0 && arr[j - 1] < 0) || (arr[j] < 0 && arr[j - 1] > 0)) {
+            count++;
+        }
+    }
+    document.getElementById('result2').innerHTML = count;*/
+
+
+    /*Вивести початкові індекси всіх безперервних послідовностей ненегативних чисел, довжина яких більше 5*/
+  /*  var result = document.getElementById('result'),
+            arr = [],
+            countSmall = 0,
+            countBig = true,
+            arrIndex = [];
+
+    function random() {
+        return parseInt(Math.random() * (10 - (-10)) + (-10));
+    }
+
+    for (var i = 0; i < 50; i++) {
+        arr.push(random());
+    }
+    result.innerHTML = arr;
+    for (var j = 0; j < arr.length; j++) {
+        countSmall = 0;
+        countBig = true;
+        if (j < arr.length && arr[j] >= 0 && arr[j + 1] >= 0) {
+            for (var b = j; countBig == true; b++) {
+                if (b < arr.length - 1 && arr[b] >= 0 && arr[b + 1] >= 0) {
+                    countSmall++;
+                    if (countSmall >= 5 && countBig < 6) {
+                        arrIndex.push(j);
+                    }
+                } else {
+                    j = b;
+                    countBig = false;
+
+                }
+            }
+        }
+    }
+    document.getElementById('result2').innerHTML = arrIndex;*/
+
+
+    /*Знайти ту безперервну послідовність позитивних чисел, сума елементів в якій максимальна*/
+    /*var result = document.getElementById('result'),
+            arr = [],
+            obj = {},
+            count = 0,
+            maxSum = 0,
+            index = 0;
+
+    function random() {
+        return parseInt(Math.random() * (10 - (-10)) + (-10));
+    }
+    for (var i = 0; i < 50; i++) {
+       arr.push(random());
+    }
+    result.innerHTML = arr;
+    for (var j = 0; j < arr.length; j++) {
+        count=0;
+        if (j < arr.length - 1 && arr[j] >= 0 && arr[j + 1] >= 0) {
+            for (var J = j; J < arr.length; J++) {
+                if (J < arr.length - 1 && arr[J] >= 0 && arr[J + 1] >= 0) {
+                } else {
+                    for (var s = j; s <= J; s++) {
+                        count += arr[s];
+                    }
+                    if (count > maxSum) {
+                        maxSum = count;
+                        index = j;
+                    }
+                    j = J;
+                    break;
+                }
+            }
+        }
+    }
+    document.getElementById('result2').innerHTML = 'suma - ' + maxSum + '; index - ' + index;*/
 
 
 </script>
