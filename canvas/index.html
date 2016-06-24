@@ -7,8 +7,22 @@
 </head>
 <body>
 <canvas id="mainCanvas" width="640" height="480"
-        style="position:absolute;background-color: #000;top:15px;left:15px;"></canvas>
-<script src="canvaslayers.js"></script>
-<script src="moveJS.js"></script>
+        style="position:absolute;background-color: yellow;top:15px;left:15px;"></canvas>
+<script src="methods.js"></script>
+<script>
+    var mainCanvas = document.getElementById('mainCanvas'),
+            ctx = mainCanvas.getContext('2d'),
+            arr = [[25,25],[25,215],[215,215],[215,69],[300,5]];
+    var draw = new shape();
+    draw.draw({
+        'points': arr,
+        //'background': 'img/popo.jpg',
+        'canvas': {
+            'context': ctx,
+            'method': 'stroke'
+        }
+    });
+
+</script>
 </body>
 </html>
