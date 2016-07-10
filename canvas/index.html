@@ -8,21 +8,31 @@
 <body>
 <canvas id="mainCanvas" width="640" height="480"
         style="position:absolute;background-color: yellow;top:15px;left:15px;"></canvas>
-<script src="methods.js"></script>
+<script src="shapeMethod.js"></script>
 <script>
     var mainCanvas = document.getElementById('mainCanvas'),
             ctx = mainCanvas.getContext('2d'),
-            arr = [[25,25],[25,215],[215,215],[215,69],[300,5]];
+            arr = [[25, 25], [25, 215], [215, 215], [215, 69], [300, 5]];
     var draw = new shape();
     draw.draw({
         'points': arr,
         //'background': 'img/popo.jpg',
         'canvas': {
+            'canvas': mainCanvas,
             'context': ctx,
             'method': 'stroke'
+        },
+        'options': {
+            'actions': ['click'],
+            'functions': [function (event) {
+                if(event.region){ // event.region work only if enable flags in chrome - ExperimentalCanvasFeatures
+                    alert(event.region);
+                }
+            }]
         }
     });
 
 </script>
 </body>
 </html>
+
