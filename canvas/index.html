@@ -8,12 +8,12 @@
 <body>
 <canvas id="mainCanvas" width="640" height="480"
         style="position:absolute;background-color: yellow;top:15px;left:15px;"></canvas>
-<script src="shapeMethod.js"></script>
+<script src="methods/shape.js"></script>
 <script>
     var mainCanvas = document.getElementById('mainCanvas'),
             ctx = mainCanvas.getContext('2d'),
             arr = [[25, 25], [25, 215], [215, 215], [215, 69], [300, 5]];
-    var draw = new shape();
+    var draw = new Shape();
     draw.draw({
         'points': arr,
         //'background': 'img/popo.jpg',

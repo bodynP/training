@@ -1,0 +1,60 @@
+<html>
+<body>
+<canvas id="myCanvas" width="800" height="800"></canvas>
+<script>
+    var x, y, i, xt;
+    var cx, cy;
+    var color;
+    var canvas = document.getElementById('myCanvas');
+    var context = canvas.getContext('2d'),
+            counter1 = 0,
+            counter2 = 0,
+            t = 0,
+            t2 = 0,
+            iteration = 200;
+
+    // for (x = 0; x < 200; x++) {
+    function loop() {
+        function loop2() {
+            // for (y = 0; y < 200; y++) {
+            i = 0;
+            cx = -2 + counter1 / 50;
+            cy = -2 + counter2 / 50;
+            zx = 0;
+            zy = 0;
+
+            do
+            {
+                xt = zx * zy;
+                zx = zx * zx - zy * zy + cx;
+                zy = 2 * xt + cy;
+                i++;
+            }
+            while (i < 255 && (zx * zx + zy * zy) < 4);
+
+            color = i.toString(16);
+            context.beginPath();
+            context.rect(counter1 * 4, counter2 * 4, 4, 4);
+            context.fillStyle = '#' + color + color + color;
+            context.fill();
+            //}
+            counter2++;
+            t2 = setTimeout(loop2, 4);
+
+            if (counter2 > iteration) {
+                clearInterval(t2);
+                counter1++;
+                counter2 = 0;
+                if (counter1 > iteration) {}
+                else {
+                    loop();
+                }
+            }
+
+        }
+        loop2();
+    }
+    loop()
+</script>
+</body>
+</html>
