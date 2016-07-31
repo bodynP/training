@@ -6,33 +6,50 @@
 
 </head>
 <body>
-<canvas id="mainCanvas" width="640" height="480"
-        style="position:absolute;background-color: yellow;top:15px;left:15px;"></canvas>
+<div style="position:absolute;width:800px;left:50%;transform: translate(-50%,0)">
+    <canvas id="mainCanvas" width="640" height="480"
+            style="position:relative;background-color: yellow;top:0px;left:0px;"></canvas>
+    <input type="button" onclick="init()" value="DRAW" style="position:relative;top: 0px; float: right;"/>
+</div>
 <script src="methods/shape.js"></script>
 <script>
     var mainCanvas = document.getElementById('mainCanvas'),
             ctx = mainCanvas.getContext('2d'),
             arr = [[25, 25], [25, 215], [215, 215], [215, 69], [300, 5]];
     var draw = new Shape();
-    draw.draw({
-        'points': arr,
-        //'background': 'img/popo.jpg',
-        'canvas': {
-            'canvas': mainCanvas,
-            'context': ctx,
-            'method': 'stroke'
-        },
-        'options': {
-            'actions': ['click'],
-            'functions': [function (event) {
-                if(event.region){ // event.region work only if enable flags in chrome - ExperimentalCanvasFeatures
-                    alert(event.region);
-                }
-            }]
-        }
-    });
+
+    function init() {
+        var params = {
+            "points": arr,
+            "canvas": {
+                "canvas": mainCanvas,
+                "context": ctx,
+                "method": "stroke"
+            }
+        };
+        draw.setParameters(params);
+        draw.draw();
+        /*    draw.draw({
+         'points': arr,
+         //'background': 'img/popo.jpg',
+         'canvas': {
+         'canvas': mainCanvas,
+         'context': ctx,
+         'method': 'stroke'
+         },
+         'options': {
+         'actions': ['click'],
+         'functions': [function (event) {
+         if (event.region) { // event.region work only if enable flags in chrome - ExperimentalCanvasFeatures
+         alert(event.region);
+         }
+         }]
+         }
+         });*/
+    }
 
 </script>
+
 </body>
 </html>
 
