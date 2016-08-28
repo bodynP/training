@@ -3,8 +3,8 @@
  */
 
 function Shape() {
-    var thisScope = this;
-    this.scope = {
+    var self = this;
+    self.scope = {
         customerParams: {},
         build: function (array, context) {
             for (var i = 0; i < array.length; i++) {
@@ -18,14 +18,18 @@ function Shape() {
     };
 }
 Shape.prototype.draw = function () {
-    var param = this.scope.customerParams,
+    var self = this,
+        param = self.scope.customerParams,
         userCTX = param.canvas.context;
     userCTX.beginPath();
-    if (param.points)this.scope.build(param.points, userCTX);
+    if (param.points) {
+        self.scope.build(param.points, userCTX);
+    }
     userCTX.closePath();
     userCTX[param.canvas.method]();
 };
 Shape.prototype.setParameters = function (param) {
-    this.scope.customerParams = param;
+    var self = this;
+    self.scope.customerParams = param;
 };
 
