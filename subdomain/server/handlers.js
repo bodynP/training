@@ -6,12 +6,13 @@ var handlers = (function(){
     var index = function(req,res){
         res.send('djihad');
     };
-    var asd = function(req,res){
-        res.send('asd');
+    var index2 = function(req,res){
+        res.send(req.vhost[0])
     };
+
     return {
         "index":index,
-        "asd":asd
+        "index2":index2
     }
 })();
 exports.handlers = handlers;
