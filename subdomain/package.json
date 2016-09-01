@@ -6,7 +6,11 @@
     "dev": "nodemon index.js"
   },
   "dependencies": {
+    "connect": "^3.4.1",
     "express": "^4.14.0",
-    "nodemon": "^1.10.2"
+    "nodemon": "^1.10.2",
+    "pg-promise": "^5.3.2",
+    "serve-static": "^1.11.1",
+    "vhost": "^3.0.2"
   }
 }

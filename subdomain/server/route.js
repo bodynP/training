@@ -2,18 +2,35 @@
  * Created by pahlava on 27.08.2016.
  */
 var handlers = require('./handlers');
-var app = require('../index');
+var index = require('../index');
+var obj  = index.obj;
+var app = new obj.express.Router();
+//var exp = require('express');
+//var app = exp();
 
-
-var routeMethod = (function () {
+var routeMethod = function (app) {
     var first = function (req, res){
-        //sres.send('olol');
-        console.log(req.url);
-        app.get("/",function(){res.send("great")});
-        //app.get("/", handlers.handlers.index);
+
+        /*app.use('/', function (req,res,next) {
+            handlers.handlers.index
+            next()
+        })*/
+        //console.log(req)
+
+        console.log(app.get)
+        app.get("/", function (req,res) {
+            res.send("great")
+        });
+      return app;
+        /*  app.get("/", handlers.handlers.index);*/
     };
     var second = function(req, res){
-        res.send('afds');
+        console.log('second')
+        app.get("/", function () {
+            res.send("greatSecond")
+        });
+        //res.send('afds');
+
     };
 
 
@@ -33,6 +50,6 @@ var routeMethod = (function () {
        "first":first,
        "second":second
    }
-})();
+};
 exports.routeMethod = routeMethod;
 

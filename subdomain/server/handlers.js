@@ -4,6 +4,7 @@
 var handlers = (function(){
 
     var index = function(req,res){
+        console.log('qewrqwerqw')
         res.send('djihad');
     };
     var index2 = function(req,res){
