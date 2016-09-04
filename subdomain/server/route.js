@@ -2,37 +2,27 @@
  * Created by pahlava on 27.08.2016.
  */
 var handlers = require('./handlers');
-var index = require('../index');
-var obj  = index.obj;
-var app = new obj.express.Router();
-//var exp = require('express');
-//var app = exp();
 
-var routeMethod = function (app) {
-    var first = function (req, res){
+module.exports = (function () {
 
-        /*app.use('/', function (req,res,next) {
-            handlers.handlers.index
-            next()
-        })*/
-        //console.log(req)
+    var sub = function (app,express) {
+        var api = new express.Router();
 
-        console.log(app.get)
-        app.get("/", function (req,res) {
-            res.send("great")
+        api.get("/", function (req, res) {
+            console.log('aaaaaaaaaaaaa');
+            res.send("great");
         });
-      return app;
+        return api;
         /*  app.get("/", handlers.handlers.index);*/
     };
-    var second = function(req, res){
-        console.log('second')
-        app.get("/", function () {
+    var direct = function (app,express) {
+        var api = new express.Router();
+
+        api.get("/", function (req,res) {
             res.send("greatSecond")
         });
-        //res.send('afds');
-
+        return api;
     };
-
 
    /* db.one("insert into testtable1 values(2,'qqqqqqq')", 123)
         .then(function (data) {
@@ -42,14 +32,11 @@ var routeMethod = function (app) {
             console.log("ERROR:", error);
         });
     res.send(req.hostname);*/
-    //console.log(req)
-    //res.send('afds');
-    // app.get("/:*", handlers.handlers.index);
 
    return {
-       "first":first,
-       "second":second
+       "sub":sub,
+       "direct":direct
    }
-};
-exports.routeMethod = routeMethod;
+})();
+
 
