@@ -10,10 +10,8 @@ var route = require('./server/route');
 var direct = route.direct(app,express);
 var sub = route.sub(app,express);
 
-
 function createVirtualHost(domainName, method) {
     return vhost(domainName, method)
-
 };
 
 var subhost = createVirtualHost("*.localhost", sub);

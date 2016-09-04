@@ -8,19 +8,14 @@ module.exports = (function () {
     var sub = function (app,express) {
         var api = new express.Router();
 
-        api.get("/", function (req, res) {
-            console.log('aaaaaaaaaaaaa');
-            res.send("great");
-        });
+        api.get("/",handlers.index);
         return api;
-        /*  app.get("/", handlers.handlers.index);*/
     };
     var direct = function (app,express) {
         var api = new express.Router();
 
-        api.get("/", function (req,res) {
-            res.send("greatSecond")
-        });
+
+        api.get("/",handlers.index2);
         return api;
     };
 
