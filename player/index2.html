@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--<script>
+    var Request = function () {}
+    Request.prototype.xhr = function (method, url, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.open(method, url);
+        xhr.responseType="arraybuffer"
+        xhr.onload = function () {
+            if (xhr.readyState != 4){
+                return;
+            }
+             else if(xhr.status == 200 ||xhr.status == 206  ){
+                callback(xhr)
+            }
+        }
+        xhr.send();
+    }
+
+    var newXhr = new Request(),
+        arrayRange = [[0,10000]];
+    newXhr.xhr('GET', 'http://127.0.0.1:666/storage/heavyPrerollV2.webm?range0='+arrayRange[0][0]+'&range1='+arrayRange[0][1]+'', function (xhr) {
+       // for()
+        console.log(xhr)
+    });
+
+</script>-->
+
+
+<video id="player" style="width:640px;height:480px;" controls></video>
+<img id="img"/>
+
+<script src="index.js"></script>
+
+</body>
+</html>
